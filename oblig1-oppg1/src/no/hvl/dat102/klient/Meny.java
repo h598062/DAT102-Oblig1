@@ -22,8 +22,13 @@ public class Meny {
 				2020,
 				Sjanger.DRAMA,
 				"Bjørnars Disipler"));
-		filmarkiv.leggTilFilm(new Film(2, "Kristian", "Kristians første julenøtt", 2096, Sjanger.SCIFI, "Bells CO"));
+		filmarkiv.leggTilFilm(new Film(2, "Kristian", "Kristians og hans første julenøtt", 2096, Sjanger.SCIFI, "Bells CO"));
 		filmarkiv.leggTilFilm(new Film(3, "Storm", "Store Sterke Storm", 1915, Sjanger.HISTORY, "Alle"));
+
+		// tekstgr.lesFilm();
+		tekstgr.visFilm(filmarkiv.finnFilm(1));
+		tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, "og");
+		tekstgr.skrivUtFilmProdusent(filmarkiv, "Storm");
 	}
 }
 

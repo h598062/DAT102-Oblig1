@@ -2,28 +2,50 @@ package no.hvl.dat102.klient;
 
 import no.hvl.dat102.Film;
 import no.hvl.dat102.adt.FilmarkivADT;
+import no.hvl.dat102.Sjanger;
+
+import java.util.Scanner;
 
 public class Tekstgrensesnitt {
 	// lese opplysningene om en FILM fra tastatur
 	public Film lesFilm() {
-		// TODO
-		return null;
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Vær vennlig og skriv inn filmnr: ");
+		int nr = scanner.nextInt();
+		System.out.println("Vær vennlig og skriv inn produsent: ");
+		String produsent = scanner.nextLine();
+		System.out.println("Vær vennlig og skriv inn tittel: ");
+		String tittel = scanner.nextLine();
+		System.out.println("Vær vennlig og skriv inn lanseringsår: ");
+		int aar = scanner.nextInt();
+		System.out.println("Vær vennlig og skriv inn sjanger: ");
+		String sjangerString = scanner.nextLine();
+		Sjanger sjanger = Sjanger.valueOf(sjangerString);
+		System.out.println("Vær vennlig og skriv inn filmselskap: ");
+		String filmSelskap = scanner.nextLine();
+		scanner.close();
+		return new Film(nr, produsent, tittel, aar, sjanger, filmSelskap);
 	}
 
 	// vise en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void visFilm(Film film) {
-		// TODO
+		System.out.println(film.toString());
 	}
 
 	// Skrive ut alle Filmer med en spesiell delstreng i tittelen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT filma, String delstreng) {
-		// TODO
+		Film[] filmInneholder = filma.soekTittel(delstreng);
+		for (Film film : filmInneholder) {
+			visFilm(film);
+		}
 	}
 
 	// Skriver ut alle Filmer av en produsent / en gruppe
 	public void skrivUtFilmProdusent(FilmarkivADT filma, String delstreng) {
-		// TODO
-	}
+		Film[] filmInneholder = filma.soekProdusent(delstreng);
+		for (Film film : filmInneholder) {
+			visFilm(film);
+		}	}
 
 	// Skrive ut en enkel statistikk som inneholder antall Filmer totalt
 	// og hvor mange det er i hver sjanger

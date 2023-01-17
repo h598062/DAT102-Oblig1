@@ -13,6 +13,11 @@ public class Filmarkiv implements FilmarkivADT {
 
 	@Override
 	public Film finnFilm(int nr) {
+		for (Film film : filmtab) {
+			if (nr == film.getFilmnr()) {
+				return film;
+			}
+		}
 		return null;
 	}
 
@@ -44,8 +49,32 @@ public class Filmarkiv implements FilmarkivADT {
 	}
 
 	@Override
+	public Film[] soekProdusent(String produsent) {
+		Film[] nyTab = new Film[filmtab.length];
+		int antall = 0;
+		for (int i = 0; i < ant; i++) {
+			Film film = filmtab[i];
+			System.out.println(film.getProdusent().equals(produsent));
+			if (film.getProdusent().equals(produsent)) {
+				nyTab[i] = film;
+				antall++;
+			}
+		}
+		return trimTab(nyTab, antall);
+	}
+
+	@Override
 	public Film[] soekTittel(String delstreng) {
-		return new Film[0];
+		Film[] nyTab = new Film[filmtab.length];
+		int antall = 0;
+		for (int i = 0; i < ant; i++) {
+			Film film = filmtab[i];
+			if (film.getTittel().contains(delstreng)) {
+				nyTab[i] = film;
+				antall++;
+			}
+		}
+		return trimTab(nyTab, antall);
 	}
 
 	@Override

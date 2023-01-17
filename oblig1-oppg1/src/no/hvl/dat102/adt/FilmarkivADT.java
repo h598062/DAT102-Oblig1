@@ -39,6 +39,15 @@ public interface FilmarkivADT {
 	Film[] soekTittel(String delstreng);
 
 	/**
+	 * Søker og henter Filmer med en gitt produsent.
+	 *
+	 * @param produsent som må være lik en produsent
+	 *
+	 * @return tabell med filmer som har lik produsent
+	 */
+	Film[] soekProdusent(String produsent);
+
+	/**
 	 * Finner antall filmer med gitt sjanger
 	 *
 	 * @param sjanger Sjanger fra enum Sjanger
