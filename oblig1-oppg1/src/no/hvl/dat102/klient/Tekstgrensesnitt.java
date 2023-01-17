@@ -11,17 +11,22 @@ public class Tekstgrensesnitt {
 	public Film lesFilm() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Vær vennlig og skriv inn filmnr: ");
-		int nr = scanner.nextInt();
-		System.out.println("Vær vennlig og skriv inn produsent: ");
+		int nr = Integer.parseInt(scanner.nextLine());
+		System.out.print("Vær vennlig og skriv inn produsent: ");
 		String produsent = scanner.nextLine();
-		System.out.println("Vær vennlig og skriv inn tittel: ");
+		System.out.print("Vær vennlig og skriv inn tittel: ");
 		String tittel = scanner.nextLine();
-		System.out.println("Vær vennlig og skriv inn lanseringsår: ");
-		int aar = scanner.nextInt();
+		System.out.print("Vær vennlig og skriv inn lanseringsår: ");
+		int aar = Integer.parseInt(scanner.nextLine());
 		System.out.println("Vær vennlig og skriv inn sjanger: ");
+		System.out.print("Mulige sjangre: ");
+		for (Sjanger s : Sjanger.referanseTab()) {
+			System.out.print(s + ", ");
+		}
+		System.out.print("\nValgt sjanger: ");
 		String sjangerString = scanner.nextLine();
 		Sjanger sjanger = Sjanger.valueOf(sjangerString);
-		System.out.println("Vær vennlig og skriv inn filmselskap: ");
+		System.out.print("Vær vennlig og skriv inn filmselskap: ");
 		String filmSelskap = scanner.nextLine();
 		scanner.close();
 		return new Film(nr, produsent, tittel, aar, sjanger, filmSelskap);
