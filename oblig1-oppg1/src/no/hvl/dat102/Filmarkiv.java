@@ -51,30 +51,29 @@ public class Filmarkiv implements FilmarkivADT {
 	@Override
 	public Film[] soekProdusent(String produsent) {
 		Film[] nyTab = new Film[filmtab.length];
-		int antall = 0;
+		int pos = 0;
 		for (int i = 0; i < ant; i++) {
 			Film film = filmtab[i];
-			System.out.println(film.getProdusent().equals(produsent));
 			if (film.getProdusent().equals(produsent)) {
-				nyTab[i] = film;
-				antall++;
+				nyTab[pos] = film;
+				pos++;
 			}
 		}
-		return trimTab(nyTab, antall);
+		return trimTab(nyTab, pos);
 	}
 
 	@Override
 	public Film[] soekTittel(String delstreng) {
 		Film[] nyTab = new Film[filmtab.length];
-		int antall = 0;
+		int pos = 0;
 		for (int i = 0; i < ant; i++) {
 			Film film = filmtab[i];
 			if (film.getTittel().contains(delstreng)) {
-				nyTab[i] = film;
-				antall++;
+				nyTab[pos] = film;
+				pos++;
 			}
 		}
-		return trimTab(nyTab, antall);
+		return trimTab(nyTab, pos);
 	}
 
 	@Override
