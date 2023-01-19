@@ -6,6 +6,8 @@ import no.hvl.dat102.Sjanger;
 
 import java.util.Scanner;
 
+import static no.hvl.dat102.Sjanger.*;
+
 public class Tekstgrensesnitt {
 	// lese opplysningene om en FILM fra tastatur
 	public Film lesFilm() {
@@ -56,7 +58,12 @@ public class Tekstgrensesnitt {
 	// Skrive ut en enkel statistikk som inneholder antall Filmer totalt
 	// og hvor mange det er i hver sjanger
 	public void skrivUtStatistikk(FilmarkivADT filma) {
-		// TODO
+		Sjanger[] sjangers = Sjanger.referanseTab();
+		System.out.println("Det er " + filma.antall() + " filmer! WAOOOW");
+
+		for (int i = 0; i < sjangers.length; i++) {
+			System.out.println("Det er: " + filma.antall(sjangers[i]) + " " + sjangers[i].toString());
+		}
+
 	}
-	// ... Ev. andre metoder
 }
