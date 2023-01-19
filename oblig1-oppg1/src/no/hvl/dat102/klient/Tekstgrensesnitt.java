@@ -10,6 +10,7 @@ public class Tekstgrensesnitt {
 	// lese opplysningene om en FILM fra tastatur
 	public Film lesFilm() {
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("Dette er en interaktiv metode for å legge inn en ny film.");
 		System.out.print("Vær vennlig og skriv inn filmnr: ");
 		int nr = Integer.parseInt(scanner.nextLine());
 		System.out.print("Vær vennlig og skriv inn produsent: ");
@@ -24,7 +25,7 @@ public class Tekstgrensesnitt {
 			System.out.print(s + ", ");
 		}
 		System.out.print("\nValgt sjanger: ");
-		String sjangerString = scanner.nextLine();
+		String sjangerString = scanner.nextLine().toUpperCase();
 		Sjanger sjanger = Sjanger.valueOf(sjangerString);
 		System.out.print("Vær vennlig og skriv inn filmselskap: ");
 		String filmSelskap = scanner.nextLine();
