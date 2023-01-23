@@ -6,10 +6,13 @@ import no.hvl.dat102.Sjanger;
 
 import java.util.Scanner;
 
+import static no.hvl.dat102.Sjanger.*;
+
 public class Tekstgrensesnitt {
 	// lese opplysningene om en FILM fra tastatur
 	public Film lesFilm() {
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("Dette er en interaktiv metode for å legge inn en ny film.");
 		System.out.print("Vær vennlig og skriv inn filmnr: ");
 		int nr = Integer.parseInt(scanner.nextLine());
 		System.out.print("Vær vennlig og skriv inn produsent: ");
@@ -24,7 +27,7 @@ public class Tekstgrensesnitt {
 			System.out.print(s + ", ");
 		}
 		System.out.print("\nValgt sjanger: ");
-		String sjangerString = scanner.nextLine();
+		String sjangerString = scanner.nextLine().toUpperCase();
 		Sjanger sjanger = Sjanger.valueOf(sjangerString);
 		System.out.print("Vær vennlig og skriv inn filmselskap: ");
 		String filmSelskap = scanner.nextLine();
@@ -55,7 +58,12 @@ public class Tekstgrensesnitt {
 	// Skrive ut en enkel statistikk som inneholder antall Filmer totalt
 	// og hvor mange det er i hver sjanger
 	public void skrivUtStatistikk(FilmarkivADT filma) {
-		// TODO
+		Sjanger[] sjangers = Sjanger.referanseTab();
+		System.out.println("Det er " + filma.antall() + " filmer! WAOOOW");
+
+		for (int i = 0; i < sjangers.length; i++) {
+			System.out.println("Det er: " + filma.antall(sjangers[i]) + " " + sjangers[i].toString());
+		}
+
 	}
-	// ... Ev. andre metoder
 }

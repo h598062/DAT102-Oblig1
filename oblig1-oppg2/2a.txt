@@ -1,0 +1,15 @@
+i.
+
+    O(n^2)
+
+ii.
+
+    O(log n)
+
+iii.
+
+    O(n^3)
+
+iv.
+
+    O(log n)
