@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package no.hvl.dat102.tabell;
 
@@ -7,13 +7,13 @@ import no.hvl.dat102.adt.KoeADT;
 import no.hvl.dat102.exceptions.EmptyCollectionException;
 
 /**
- * @author Ole Olsen
  * @param <T>
- * 
+ *
+ * @author Ole Olsen
  */
 public class TabellSirkulaerKoe<T> implements KoeADT<T> {
 
-	private final static int STDK = 100;
+	private static final int STDK = 100;
 	private int foran, bak;
 	private T[] koe;
 
@@ -28,26 +28,22 @@ public class TabellSirkulaerKoe<T> implements KoeADT<T> {
 	}
 
 	public void innKoe(T element) {
-		if (foran == ((bak + 2) % koe.length))
-			utvid();
-		//Fyll ut
-
+		if (foran == ((bak + 2) % koe.length)) utvid();
+		bak = (bak + 1) % koe.length;
+		koe[bak] = element;
 	}
 
 	public T utKoe() {
-		if (erTom())
-			throw new EmptyCollectionException("koe");
-
-		//Fyll ut
-		return null;//Midletidig
+		if (erTom()) throw new EmptyCollectionException("koe");
+		T resultat = koe[foran];
+		koe[foran] = null;
+		foran = (foran + 1) % koe.length;
+		return resultat;
 	}
 
 	public T foerste() {
-		if (erTom())
-			throw new EmptyCollectionException("koe");
-
-		T resultat = koe[foran];
-		return resultat;
+		if (erTom()) throw new EmptyCollectionException("koe");
+		return koe[foran];
 	}
 
 	public boolean erTom() {
