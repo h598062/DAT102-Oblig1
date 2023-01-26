@@ -25,9 +25,13 @@ public class Meny {
 		filmarkiv.leggTilFilm(new Film(3, "Storm", "Store Sterke Storm", 1915, Sjanger.HISTORY, "Alle"));
 
 		// filmarkiv.leggTilFilm(tekstgr.lesFilm());
+		System.out.println("Vis film nummer 1: ");
 		tekstgr.visFilm(filmarkiv.finnFilm(1));
+		System.out.println("Skriv ut filmer der tittel inneholder og: ");
 		tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, "og");
+		System.out.println("Skriv ut filmer der produsenten er Storm");
 		tekstgr.skrivUtFilmProdusent(filmarkiv, "Storm");
+		System.out.println("Skriv ut statistikk for antall filmer og filmer per sjanger");
 		tekstgr.skrivUtStatistikk(filmarkiv);
 	}
 }
