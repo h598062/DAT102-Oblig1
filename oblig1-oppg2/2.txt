@@ -1,0 +1,38 @@
+Oppgave a:
+
+    i. O(n^2)
+
+    ii. O(n)
+
+    iii. O(n^3)
+
+    iv. O(log n)
+
+Oppgave b:
+
+    O(log2 n)
+
+Oppgave c:
+
+    O(n * log2 n)
+
+Oppgave d:
+
+    O(n^2) og O(n)
+
+Oppgave e:
+
+    O(n^2)
+    (n-1 * n-2)/2
+
+Oppgave f:
+
+    i. O(n^3)
+    ii. O(log2 n)
+    iii. O(n * log2 n)
+    iv. O(n)
+
+Oppgave g:
+
+    Det er kun en enkel for løkke,
+    funksjonen er fa lineær uansett n
