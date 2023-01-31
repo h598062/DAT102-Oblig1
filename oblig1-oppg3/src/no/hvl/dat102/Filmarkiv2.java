@@ -18,52 +18,49 @@ public class Filmarkiv2 implements FilmarkivADT {
 		if (start == null) return null;
 		LinearNode<Film> node = start;
 		Film resultat = null;
-		do {
+		while (node.getNeste() != null && resultat == null) {
 			if (node.getElement().getFilmnr() == nr) {
 				resultat = node.getElement();
 			}
 			node = node.getNeste();
-		} while (node != null && resultat == null);
+		}
 		return resultat;
 	}
 
 	@Override
 	public void leggTilFilm(Film nyFilm) {
-		if (nyFilm != null) {
-			LinearNode<Film> nyNode = new LinearNode<>(nyFilm);
-			if (start == null) {
-				start = nyNode;
-			} else {
-				LinearNode<Film> node = start;
-				while (node.getNeste() != null) {
-					node = node.getNeste();
-				}
-				node.setNeste(nyNode);
+		if (nyFilm == null) return;
+		LinearNode<Film> nyNode = new LinearNode<>(nyFilm);
+		if (start == null) {
+			start = nyNode;
+		} else {
+			LinearNode<Film> node = start;
+			while (node.getNeste() != null) {
+				node = node.getNeste();
 			}
-			ant++;
+			node.setNeste(nyNode);
 		}
+		ant++;
 	}
+
 
 	@Override
 	public boolean slettFilm(int filmnr) {
 		if (start == null) return false;
+		if (start.getElement().getFilmnr() == filmnr) {
+			start = start.getNeste();
+			return true;
+		}
 		LinearNode<Film> node = start;
 		LinearNode<Film> forrige = null;
-		do {
-			if (node.getElement().getFilmnr() == filmnr) {
-				if (node.equals(start)) {
-					start = node.getNeste();
-				} else if (forrige != null) {
-					forrige.setNeste(node.getNeste());
-				} else {
-					System.out.println("wtf, koffor e noe null??: " + node);
-				}
-				ant--;
-				return true;
-			}
+		while (node.getNeste() != null) {
 			forrige = node;
 			node = node.getNeste();
-		} while (node != null);
+			if (node.getElement().getFilmnr() == filmnr) {
+				forrige.setNeste(node.getNeste());
+				return true;
+			}
+		}
 		return false;
 	}
 
