@@ -35,4 +35,4 @@ Oppgave f:
 Oppgave g:
 
     Det er kun en enkel for løkke,
-    funksjonen er fa lineær uansett n
+    funksjonen er da lineær uansett n
